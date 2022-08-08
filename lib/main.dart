@@ -13,10 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ChangeNotifierProvider<CartCountProvider>(
       create: (context) => CartCountProvider(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        title: 'DaileFresh',
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),

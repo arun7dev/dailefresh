@@ -94,6 +94,7 @@ class ProductCard extends StatelessWidget {
               Expanded(
                   child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                //mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
                     product_name,
@@ -132,14 +133,14 @@ class ProductCard extends StatelessWidget {
                                       shape: MaterialStateProperty.all(
                                           RoundedRectangleBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0))),
+                                                  BorderRadius.circular(10.0,))),
                                     ),
                                     onPressed: () {
                                       Provider.of<CartCountProvider>(context,
                                               listen: false)
                                           .incrementCart(product_id);
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       "Add",
                                       style: TextStyle(
                                         color: Colors.black,
@@ -150,35 +151,42 @@ class ProductCard extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 8, vertical: 0),
                                 child: Container(
-                                  decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.grey),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      IconButton(
-                                          onPressed: () {
-                                            Provider.of<CartCountProvider>(
-                                                    context,
-                                                    listen: false)
-                                                .decrementCart(product_id);
-                                          },
-                                          icon: Icon(Icons.remove)),
-                                      Text(Provider.of<CartCountProvider>(
-                                              context,
-                                              listen: false)
-                                          .ProductWishCartValue[product_id]
-                                          .toString()),
-                                      IconButton(
-                                          onPressed: () {
-                                            Provider.of<CartCountProvider>(
-                                                    context,
-                                                    listen: false)
-                                                .incrementCart(product_id);
-                                          },
-                                          icon: Icon(Icons.add))
-                                    ],
+                                  width: 50,
+                                  height: 40,
+                                  child: AspectRatio(
+                                    aspectRatio: 2/1,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          border: Border.all(color: Colors.grey),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10))),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          IconButton(
+                                              onPressed: () {
+                                                Provider.of<CartCountProvider>(
+                                                        context,
+                                                        listen: false)
+                                                    .decrementCart(product_id);
+                                              },
+                                              icon: Icon(Icons.remove)),
+                                          Text(Provider.of<CartCountProvider>(
+                                                  context,
+                                                  listen: false)
+                                              .ProductWishCartValue[product_id]
+                                              .toString()),
+                                          IconButton(
+                                              onPressed: () {
+                                                Provider.of<CartCountProvider>(
+                                                        context,
+                                                        listen: false)
+                                                    .incrementCart(product_id);
+                                              },
+                                              icon: Icon(Icons.add))
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),

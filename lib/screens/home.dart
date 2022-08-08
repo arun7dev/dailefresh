@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 4.0,
                   mainAxisSpacing: 4.0,
-                  childAspectRatio: 3 / 4),
+                  childAspectRatio: 4/5),
               itemBuilder: (BuildContext context, int index) {
                 //return ProductCard(products: _products[index]);
                 return ProductCard(
